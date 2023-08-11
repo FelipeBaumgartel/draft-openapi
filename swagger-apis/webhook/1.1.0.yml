@@ -121,7 +121,7 @@ components:
       name: consentId
       in: path
       description: |
-        O consentId é o idasdfentificador único do consentimento e deverá ser um URN - Uniform Resource Name.  
+        O consentId é o idasdfentificador único do consentimento e deverá ser umasdf URN - Uniform Resource Name.  
         Um URN, conforme definido na [RFC8141](https://tools.ietf.org/html/rfc8141) é um Uniform Resource 
         Identifier - URI - que é atribuído sob o URI scheme "urn" e um namespace URN específico, com a intenção de que o URN 
         seja um identificador de recurso persistente e independente da localização.  
