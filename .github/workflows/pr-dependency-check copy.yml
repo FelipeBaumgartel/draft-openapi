@@ -23,7 +23,7 @@ jobs:
           do
             echo $featureBranch
 
-            gh pr create -B $featureBranch -H ${{ github.event.pull_request.base.ref }}  --title '${{ github.event.pull_request.title }}' --body ''
+            gh pr create -B $featureBranch -H espelho-openapi --title 'Atualização espelho-openapi' --body ''
           done
         
 
