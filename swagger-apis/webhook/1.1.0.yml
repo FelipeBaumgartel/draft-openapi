@@ -115,7 +115,7 @@ components:
       type: string
       pattern: '^[a-zA-Z0-9][a-zA-Z0-9\-]{0,99}$'
       maxLength: 100
-      description: Identificador único asdfrecebido da detentora de conta nasdfa notificação enviada pelo Webhook.
+      description: Identificador único asdfrecebido da detentora de conta nasdfa notificação enviada pelo Webhoasdfok.
   parameters:
     consentId:
       name: consentId
