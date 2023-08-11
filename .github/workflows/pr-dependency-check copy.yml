@@ -14,7 +14,6 @@ jobs:
       - name: Creating pull request to aggr
         run: |
           features=$(git branch -r | grep -i "feature" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
-          echo $features // space-separated string of branches in expected format
           eval "featureArray=($features)"
 
           # create merge branches            
