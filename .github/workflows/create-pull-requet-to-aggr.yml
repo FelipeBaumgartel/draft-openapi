@@ -7,6 +7,8 @@
   jobs:
     create_pull_request:
       runs-on: ubuntu-latest
+      env:
+        enable-openapi-integration: ${{ github.repository ==  'FelipeBaumgartel/draft-openapi'}}
       steps:
         - uses: actions/checkout@v3
         - name: Creating pull request to aggr
@@ -17,12 +19,9 @@
             features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
             eval "featureArray=($features)"
 
-            echo "Conteúdo de featureArray: ${featureArray[@]}"
             # create merge branches            
             for featureBranch in ${featureArray[@]}
             do
-              echo $featureBranch
-
               gh pr create -B $featureBranch -H espelho-openapi --title 'Atualização espelho-openapi' --body ''
 
               sleep 5
