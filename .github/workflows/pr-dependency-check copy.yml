@@ -18,6 +18,8 @@ jobs:
           # create merge branches            
           for featureBranch in ${featureArray[@]}
           do
+                    echo $featureBranch // space-separated string of branches in expected format
+
             gh pr create -B $featureBranch -H ${{ github.event.pull_request.base.ref }}  --title '${{ github.event.pull_request.title }}' --body ''
           done
         
