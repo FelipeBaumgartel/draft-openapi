@@ -19,6 +19,7 @@ jobs:
           eval "featureArray=($features)"
 
           echo "Conteúdo de featureArray: ${featureArray[@]}"
+          echo "Conteúdo de features: $features"
           echo "teste"
           # create merge branches            
           for featureBranch in ${featureArray[@]}
