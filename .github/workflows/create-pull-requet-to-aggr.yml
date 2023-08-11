@@ -11,7 +11,7 @@
         - uses: actions/checkout@v3
         - name: Creating pull request to aggr
           env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Aqui você referencia o segredo
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
           run: |
             git fetch --all
             features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
