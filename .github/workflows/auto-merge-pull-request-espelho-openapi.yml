@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Auto merge espelho-openapi para aggr
         env: 
-          GH_TOKEN: ${{ secrets.AREADEV_INTEGRATION }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.head_ref }}" = "espelho-openapi" ]; then
             gh pr merge ${{ github.event.pull_request.number }} --merge
