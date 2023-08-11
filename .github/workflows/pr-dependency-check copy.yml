@@ -1,39 +1,27 @@
-name: Criar pull request para aggr
-on:
-  push:
-    branches:
-      - espelho-openapi
+  name: Criar pull request para aggr
+  on:
+    push:
+      branches:
+        - espelho-openapi
 
-jobs:
-  create_pull_request:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Creating pull request to aggr
-        env:
-          GH_TOKEN: ${{ secrets.AREADEV_INTEGRATION }}
-        run: |
-          echo "inicio" // space-separated string of branches in expected format
-          git fetch --all
-          echo $(git branch -r)
-          features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
-          eval "featureArray=($features)"
+  jobs:
+    create_pull_request:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: Creating pull request to aggr
+          env:
+            GH_TOKEN: ${{ secrets.AREADEV_INTEGRATION }}
+          run: |
+            git fetch --all
+            features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
+            eval "featureArray=($features)"
 
-          echo "Conteúdo de featureArray: ${featureArray[@]}"
-          echo "Conteúdo de features: $features"
-          echo "teste"
-          # create merge branches            
-          for featureBranch in ${featureArray[@]}
-          do
-            echo $featureBranch
+            echo "Conteúdo de featureArray: ${featureArray[@]}"
+            # create merge branches            
+            for featureBranch in ${featureArray[@]}
+            do
+              echo $featureBranch
 
-            gh pr create -B $featureBranch -H espelho-openapi --title 'Atualização espelho-openapi' --body ''
-          done
-        
-
-
-
-
-
-
-        
+              gh pr create -B $featureBranch -H espelho-openapi --title 'Atualização espelho-openapi' --body ''
+            done
