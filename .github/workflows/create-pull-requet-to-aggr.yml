@@ -7,22 +7,25 @@
   jobs:
     create_pull_request:
       runs-on: ubuntu-latest
-      env:
-        enable-openapi-integration: ${{ github.repository ==  'Sensedia/draft-openapi'}}
       steps:
         - uses: actions/checkout@v3
         - name: Creating pull request to aggr
           env:
             GH_TOKEN: ${{ secrets.GH_TOKEN }}
           run: |
-            git fetch --all
-            features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
-            eval "featureArray=($features)"
+            origin_url=$(git config --get remote.origin.url)
 
-            # create merge branches            
-            for featureBranch in ${featureArray[@]}
-            do
-              gh pr create -B $featureBranch -H espelho-openapi --title 'Atualização espelho-openapi' --body ''
+            # Verifica se o URL do repositório de origem contém o nome do repositório original
+            if [[ "$origin_url" != *"https://github.com/Sensedia/draft-openapi"* ]]; then
+              git fetch --all
+              features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
+              eval "featureArray=($features)"
 
-              sleep 5
-            done
+              # create merge branches            
+              for featureBranch in ${featureArray[@]}
+              do
+                gh pr create -B $featureBranch -H espelho-openapi --title 'Atualização espelho-openapi' --body ''
+
+                sleep 5
+              done
+            fi        
