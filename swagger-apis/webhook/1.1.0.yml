@@ -115,7 +115,7 @@ components:
       type: string
       pattern: '^[a-zA-Z0-9][a-zA-Z0-9\-]{0,99}$'
       maxLength: 100
-      description: Identificador único recebido da detentora de conta na notificação enviada pelo Webhook.
+      description: Identificador único asdfrecebido da detentora de conta na notificação enviada pelo Webhook.
   parameters:
     consentId:
       name: consentId
