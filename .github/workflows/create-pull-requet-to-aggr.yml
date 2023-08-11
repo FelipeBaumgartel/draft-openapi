@@ -24,4 +24,6 @@
               echo $featureBranch
 
               gh pr create -B $featureBranch -H espelho-openapi --title 'Atualização espelho-openapi' --body ''
+
+              sleep 5
             done
