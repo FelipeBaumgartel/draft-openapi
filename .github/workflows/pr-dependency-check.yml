@@ -5,7 +5,6 @@ on:
       - opened
       - edited
       - synchronize
-
 jobs:
   check_dependencies:
     runs-on: ubuntu-latest
