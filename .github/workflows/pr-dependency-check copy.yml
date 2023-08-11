@@ -8,7 +8,6 @@ jobs:
   create_pull_request:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
      
       - name: Creating pull request to aggr
         run: |
