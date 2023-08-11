@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "inicio" // space-separated string of branches in expected format
 
-          features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
+          echo $(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
           eval "featureArray=($features)"
 
           echo "Conteúdo de featureArray: ${featureArray[@]}"
