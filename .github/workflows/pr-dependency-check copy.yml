@@ -12,8 +12,6 @@ jobs:
       - uses: actions/checkout@v3
      
       - name: Creating pull request to aggr
-        env: 
-          GH_TOKEN: ${{ secrets.AREADEV_INTEGRATION }}
         run: |
           features=$(git branch -r | grep -i "feature" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
           echo $features // space-separated string of branches in expected format
