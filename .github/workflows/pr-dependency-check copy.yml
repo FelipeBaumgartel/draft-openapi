@@ -1,0 +1,34 @@
+name: Criar pull request para aggr
+on:
+  push:
+    branches:
+      - espelho-openapi
+
+jobs:
+  create_pull_request:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+     
+      - name: Creating pull request to aggr
+        env: 
+          GH_TOKEN: ${{ secrets.AREADEV_INTEGRATION }}
+        run: |
+          features=$(git branch -r | grep -i "feature" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
+          echo $features // space-separated string of branches in expected format
+          eval "featureArray=($features)"
+
+          # create merge branches            
+          for featureBranch in ${featureArray[@]}
+          do
+            gh pr create -B $featureBranch -H ${{ github.event.pull_request.base.ref }}  --title '${{ github.event.pull_request.title }}' --body ''
+          done
+        
+
+
+
+
+
+
+        
