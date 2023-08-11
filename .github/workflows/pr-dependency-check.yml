@@ -5,6 +5,9 @@ on:
       - opened
       - edited
       - synchronize
+  push:
+    branches:
+      - ${{ github.event.pull_request.base.ref }}
 jobs:
   check_dependencies:
     runs-on: ubuntu-latest

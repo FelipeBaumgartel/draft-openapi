@@ -15,6 +15,4 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.head_ref }}" = "espelho-openapi" ]; then
             gh pr merge ${{ github.event.pull_request.number }} --merge
-          else
-            exit 1  # Isso encerrará o workflow com um erro
           fi
