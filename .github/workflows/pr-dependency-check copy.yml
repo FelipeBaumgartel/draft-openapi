@@ -18,7 +18,7 @@ jobs:
           features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
           eval "featureArray=($features)"
 
-          echo ${featureArray[@]}
+          echo "Conteúdo de featureArray: ${featureArray[@]}"
           echo "teste"
           # create merge branches            
           for featureBranch in ${featureArray[@]}
