@@ -14,7 +14,7 @@ jobs:
           GH_TOKEN: ${{ secrets.AREADEV_INTEGRATION }}
         run: |
           echo "inicio" // space-separated string of branches in expected format
-
+          git fetch --all
           echo $(git branch -r)
           features=$(git branch -r | grep -i "aggr" | sed -e "s/.*origin\///g; /merge/d" | tr "\n" " ")
           eval "featureArray=($features)"
