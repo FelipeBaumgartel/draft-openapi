@@ -1,5 +1,13 @@
-on: [pull_request]
-
+name: Verificar dependência de PR
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+  push:
+    branches:
+      - ${{ github.event.pull_request.base.ref }}
 jobs:
   check_dependencies:
     runs-on: ubuntu-latest
