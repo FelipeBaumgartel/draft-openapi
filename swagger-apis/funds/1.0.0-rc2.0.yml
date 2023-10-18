@@ -1239,7 +1239,7 @@ components:
               - detail
             properties:
               code:
-                description: Código de erro específico do endpoint
+                description: Código de erro específico do endpoint asdfasdf
                 type: string
                 pattern: '[\w\W\s]*'
                 maxLength: 255
