@@ -1431,7 +1431,7 @@ components:
             funds: Escopo necessário para acesso à API funds. O controle dos endpoints específicos é feito via permissions.
   responses:
     OkResponseFundsProductList:
-      description: Dados obtidos com sucesso
+      description: Dados obtidos com sucessoasdf
       content:
         application/json:
           schema:
