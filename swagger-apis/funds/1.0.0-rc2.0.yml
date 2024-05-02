@@ -1217,7 +1217,7 @@ components:
         - requestDateTime
       properties:
         requestDateTime:
-          description: 'Data e hora da consulta, conforme especificação RFC-3339, formato UTC.'
+          description: 'Data ea hora da consulta, conforme especificação RFC-3339, formato UTC.'
           type: string
           maxLength: 20
           format: date-time
@@ -1431,7 +1431,9 @@ components:
             funds: Escopo necessário para acesso à API funds. O controle dos endpoints específicos é feito via permissions.
   responses:
     OkResponseFundsProductList:
-      description: Dados obtidos com sucesso
+      description: |
+        Dados obtidos com sucessoasdf
+        asdf
       content:
         application/json:
           schema:
